@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persija vs Madura United</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Persija Jakarta vs Madura United</h1>
+        <p>Tanggal: 10 November 2023 | Lokasi: Stadion Gelora Bung Karno</p>
+        <div id="countdown"></div>
+    </header>
+
+    <section id="berita-pertandingan">
+        <h2>Berita Terbaru</h2>
+        <p>Update terbaru dari kedua tim...</p>
+    </section>
+
+    <section id="statistik-pertandingan">
+        <h2>Statistik Pertandingan</h2>
+        <p>Head-to-Head, performa, dll.</p>
+    </section>
+
+    <section id="live-score">
+        <h2>Live Score & Update</h2>
+        <p>Skor langsung akan muncul di sini saat pertandingan dimulai.</p>
+    </section>
+
+    <section id="galeri">
+        <h2>Galeri Foto & Video</h2>
+        <!-- Galeri konten -->
+    </section>
+
+    <footer>
+        <p>Copyright © 2023 Persija Jakarta vs Madura United</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #d32f2f;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+section {
+    padding: 20px;
+}
+
+h2 {
+    color: #333;
+}
+
+const countdown = () => {
+    const eventDate = new Date("Nov 10, 2023 19:00:00").getTime();
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "Pertandingan Dimulai!";
+    }
+};
+
+setInterval(countdown, 1000);
